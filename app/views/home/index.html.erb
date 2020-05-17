@@ -1,0 +1,31 @@
+<h1>Fundamental</h1>
+<h2><%= @title%></h2>
+
+<%= link_to 'Add User', new_home_path%>
+
+<table>
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+    <% @users.each do |row| %>
+        <tr>
+            <td><%= row.firstname%></td>
+            <td><%= row.lastname%></td>
+            <td><%= row.phone %></td>
+            <td colspan="2">
+            <td>
+                <%= link_to 'Show', home_path(row)%>
+                <%= link_to 'Edit', edit_home_path(row)%> 
+                <%= link_to 'Delete', home_path(row), method: :delete, data:{confirm: "Are you sure"}%>
+            </td>
+        </tr>
+   <% end %>
+   </tbody> 
+</table>
